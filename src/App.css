@@ -1,0 +1,33 @@
+body{
+    overflow-x: hidden; 
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+  .active{
+     background-color: rgba(15, 222, 87, 0.982);
+    padding: 10px 20px;
+    border-radius: 10px; 
+ 
+  }
+  .adminNav>li>.active{
+    background-color: rgba(11, 10, 11, 0.982);
+    padding: 10px 20px;
+    border-radius: 10px; 
+  }
+
+  .compare{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+
+  .login{
+    /*
+      background: url('https://tailwindadmin.netlify.app/dist/images/login-new.jpeg');
+    */
+    background: url('https://images.unsplash.com/photo-1542228262-3d663b306a53?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
