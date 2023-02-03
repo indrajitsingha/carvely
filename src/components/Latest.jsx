@@ -4,7 +4,7 @@ const Latest = () => {
   return (<>
     
 
-    <h2 class="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Latest Cars</h2>
+    <h2 className="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Latest Cars</h2>
 
   
     <div className="min-h-[50vh] sm:h-[50vh] w-[100%] flex  flex-col sm:flex-row justify-center items-center mt-5 mb-12  text-black sm:gap-1 gap-2">
@@ -22,7 +22,7 @@ const Latest = () => {
           <div className=" text-center text-[20px]">Rs : 6.56 - 9.83 Lakh*</div>
         </div>
         <div className=" h-[14%] w-[100%] pt-2 flex justify-center">
-          <button class="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+          <button className="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
             See More
           </button>
         </div>
@@ -43,7 +43,7 @@ const Latest = () => {
           <div className=" text-center text-[20px]">Rs : 6.56 - 9.83 Lakh*</div>
         </div>
         <div className=" h-[14%] w-[100%] pt-2 flex justify-center">
-          <button class="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+          <button className="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
             See More
           </button>
         </div>
@@ -65,7 +65,7 @@ const Latest = () => {
           <div className=" text-center text-[20px]">Rs : 6.56 - 9.83 Lakh*</div>
         </div>
         <div className=" h-[14%] w-[100%] pt-2 flex justify-center">
-          <button class="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+          <button className="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
             See More
           </button>
         </div>
@@ -87,7 +87,7 @@ const Latest = () => {
           <div className=" text-center text-[20px]">Rs : 6.56 - 9.83 Lakh*</div>
         </div>
         <div className=" h-[14%] w-[100%] pt-2 flex justify-center">
-          <button class="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
+          <button className="py-2 px-4 shadow-md no-underline rounded bg-red-600 text-white font-sans font-semibold text-sm border-red btn-primary hover:text-white hover:bg-red-light focus:outline-none active:shadow-none">
             See More
           </button>
         </div>

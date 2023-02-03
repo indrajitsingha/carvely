@@ -3,7 +3,7 @@ import React from 'react'
 const BrandAll = () => {
   return (
   <>
-  <h2 class="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Popular Brands</h2>
+  <h2 className="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Popular Brands</h2>
     <div className="min-h-[30vh] sm:h-[50vh] w-[100%] flex  flex-col sm:flex-row justify-center items-center mt-5 mb-12  text-black sm:gap-1 gap-2">
 
 

@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Cars from './pages/Cars';
 import Category from './pages/Category';
-import GetDetils from './pages/GetDetils';
+// import GetDetils from './pages/GetDetils';
 import Home from "./pages/Home"
 
 ////admin

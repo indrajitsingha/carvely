@@ -5,19 +5,19 @@ import '../assets/css/Homestyle.css'
 const Cars = () => {
   return (
     <>
-      <section class=" h-[70vh] w-[100%]  carslider ">
+      <section className=" h-[70vh] w-[100%]  carslider ">
   
 
-  <div class="flex h-full w-[100%] items-center justify-center container mx-auto px-8">
-    <div class="max-w-2xl text-center">
-      <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-4xl">Search Your Dream CAR</h1>
+  <div className="flex h-full w-[100%] items-center justify-center container mx-auto px-8">
+    <div className="max-w-2xl text-center">
+      <h1 className="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-4xl">Search Your Dream CAR</h1>
 
-      <div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
-        <input id="email" type="text" class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Search Cars" />
+      <div className="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
+        <input id="email" type="text" className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Search Cars" />
 
-        <div class="flex flex-row m-2">
-                        <div class="m-1">
-                            <select class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ">
+        <div className="flex flex-row m-2">
+                        <div className="m-1">
+                            <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ">
                                 <option selected className='bg-black '>Vehical Types</option>
                                 <option className='p-1 bg-black'>Hatchback</option>
                                 <option className='p-1 bg-black'>Sedan</option>
@@ -37,8 +37,8 @@ const Cars = () => {
 
 
                        
-                        <div class="m-1">
-                            <select class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
+                        <div className="m-1">
+                            <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
                                 <option selected className='p-1 bg-black'>Brand</option>
                                 <option  className='p-1 bg-black'>Maruti</option>
                                 <option  className='p-1 bg-black'>Hyundai</option>
@@ -56,8 +56,8 @@ const Cars = () => {
                         
 
 
-                        <div class="m-1">
-                        <select class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
+                        <div className="m-1">
+                        <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
                                 <option  className='p-1 bg-black'>Price</option>
                                 <option  className='p-1 bg-black'>1-5 Lakh </option>
                                 <option className='p-1 bg-black'>5-10 Lakhs</option>
@@ -72,7 +72,7 @@ const Cars = () => {
                         </div>
                         </div>
 
-        <button class="transform rounded-md bg-blue-700 px-8 py-2 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Search</button>
+        <button className="transform rounded-md bg-blue-700 px-8 py-2 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Search</button>
       </div>
     </div>
   </div>

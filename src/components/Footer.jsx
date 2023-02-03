@@ -5,8 +5,8 @@ const Footer = () => {
   const navigate=useNavigate()
   return (
     <div>
-    <footer class="footer footer-center  w-full p-4 bottom-0 text-white bg-black">
-      <div class="text-center">
+    <footer className="footer footer-center  w-full p-4 bottom-0 text-white bg-black">
+      <div className="text-center">
         <p>
           Copyright © 2022 -
           <p onClick={()=>navigate("/adminlogin")} >Login</p>
