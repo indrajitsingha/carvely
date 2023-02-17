@@ -1,44 +1,72 @@
+/* eslint-disable array-callback-return */
 import React from "react";
 import BrandAll from "../components/BrandAll";
 import '../assets/css/Homestyle.css'
 import Categories from "../components/Categories";
 import Latest from "../components/Latest";
+import SearchHeader from "../components/SearchHeader";
+import { useSelector } from "react-redux";
+import { STATUS } from "../Redux/Slice/DataSlice";
+import Spineer from "../components/Spineer";
 
 
 const Home = () => {
+
+  const { Brands, status } = useSelector((state) => state.CarData)
+  
+
+
+
   return (
     <>
-    
-<section class=" h-[70vh] w-[100%]  slider ">
-  
 
-  <div class="flex h-full w-[100%] items-center justify-center container mx-auto px-8">
-    <div class="max-w-2xl text-center">
-      <h1 class="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-4xl">All About Your Dream CAR</h1>
+      {status === STATUS.LOADING ?
 
-      <p class="mt-6 lg:text-lg text-white">Get all information about your Dream Cars </p>
+        <Spineer />
+        :
 
-      <div class="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
-        <input id="email" type="text" class="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Search Cars" />
+        <>
+          <SearchHeader />
 
-        <button class="transform rounded-md bg-green-500 px-8 py-2 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Search</button>
-      </div>
-    </div>
-  </div>
+          <div className="flex justify-center items-center flex-row w-[100%] mt-11">
 
-  
-</section>
+            <Categories />
 
-<Categories/>
-<Latest/>
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Latest Cars</h2>
+          <div className="w-[100%]">
+            <Latest />
+          </div>
+          <div className="flex justify-center items-center w-[100%] m-10">
 
-<BrandAll/>
+            <h1 className="text-[30px] font-semibold font-serif text-red-900 text-center">Top Brands</h1>
+
+          </div>
+
+          <div className="my-10 flex flex-row justify-around flex-wrap items-center w-[100%]">
+
+            {
+              Brands && Brands.map((x, index) => {
+                if (index < 6) {
+                  return (
+                    <BrandAll x={x} brandId={x.id} key={index} />
+                  )
+                } 
+              })
+            }
+          </div>
+
+        </>
 
 
-    
-
+      }
     </>
   );
+
+
 };
 
+
+
 export default Home;
+

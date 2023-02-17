@@ -4,16 +4,16 @@ body{
 body::-webkit-scrollbar {
     display: none;
   }
-  .active{
-     background-color: rgba(15, 222, 87, 0.982);
+  li>.active{
+     background-color: rgba(197, 52, 200, 0.982);
     padding: 10px 20px;
-    border-radius: 10px; 
+    border-radius: 8px; 
+    color:white;
  
   }
   .adminNav>li>.active{
     background-color: rgba(11, 10, 11, 0.982);
-    padding: 10px 20px;
-    border-radius: 10px; 
+    border-radius: 6px; 
   }
 
   .compare{
@@ -29,5 +29,277 @@ body::-webkit-scrollbar {
     background-repeat: no-repeat;
     background-size: cover;
   }
+  .loginUser{
+    /*
+      background: url('https://tailwindadmin.netlify.app/dist/images/login-new.jpeg');
+    */
+    background: url('https://www.bugatti.com/fileadmin/_processed_/sei/p121/se-image-4f750982624e527a8b1003408e4febcf.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
 
+
+
+  @media (max-width: 767px) {
+    .navicon {
+      width: 1.125em;
+      height: .125em;
+    }
+  
+    .navicon::before,
+    .navicon::after {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: all .2s ease-out;
+      content: '';
+      background: #3D4852;
+    }
+  
+    .navicon::before {
+      top: 5px;
+    }
+  
+    .navicon::after {
+      top: -5px;
+    }
+  
+    .menu-btn:not(:checked) ~ .menu {
+      display: none;
+    }
+  
+    .menu-btn:checked ~ .menu {
+      display: block;
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon::before {
+      transform: rotate(-45deg);
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon::after {
+      transform: rotate(45deg);
+    }
+  
+    .menu-btn:checked ~ .menu-icon .navicon::before,
+    .menu-btn:checked ~ .menu-icon .navicon::after {
+      top: 0;
+    }
+  }
+
+
+  .hide{
+    display:none
+  }
+
+
+
+  .image-slide {
+    height: 100%;
+    width: 100%;
+    transition: background-image 0.3s ease-in-out;
+  }
+  
+  .slide-arrow {
+    color: #14b6d4;
+    cursor: pointer;
+    font-size: 2rem;
+    position: fixed;
+    top: 45%;
+  }
+  
+  .slide-arrow.right {
+    right: 1rem;
+  }
+  
+  .slide-arrow.left {
+    left: 1rem;
+  }
+
+  /* ////////////////////////////////comparision////////////// */
+
+	.table {
+		border-spacing: 0 15px;
+	}
+
+	i {
+		font-size: 1rem !important;
+	}
+
+	.table tr {
+		border-radius: 20px;
+	}
+
+	tr td:nth-child(n+5),
+	tr th:nth-child(n+5) {
+		border-radius: 0 .625rem .625rem 0;
+	}
+
+	tr td:nth-child(1),
+	tr th:nth-child(1) {
+		border-radius: .625rem 0 0 .625rem;
+	}
+
+/* //////////////////////////////////////// */
+
+
+.comparisionBackground{
+  background: #0F2027;  /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #2C5364, #203A43, #0F2027); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+
+.cssBroder{
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+  margin: 10px;
+}
+
+
+
+/* ////////////////////////////Loader////////////////////////// */
+body {
+  margin: 0;
+}
+
+/* / Customize this preloader / */
+:root {
+  --preload-color-background: #212121;
+  --preload-color-foreground: #ffffff;
+  --preload-color-accent: black;
+  --preload-gap: 36px;
+  --preload-icon-size: 128px;
+  --preload-font: 2em Roboto, arial, sans-serif;
+  --preload-title: 'Carvely';
+  --preload-spinner-size: 32px;
+  --preload-spinner-width: 3px;
+}
+#app-preloader {
+  position: absolute;
+  margin-top: 100vh;
+  width: 100vw;
+  min-height:  200vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--preload-gap);
+  justify-content: center;
+  align-items: center;
+  background: var(--preload-color-background);
+  color: var(--preload-color-foreground);
+  font: var(--preload-font);
+  transition: .3s ease-in-out;
+}
+
+#app-preloader .preloader-logo {
+  width: var(--preload-icon-size);
+  height: var(--preload-icon-size);
+  color: var(--preload-color-accent);
+  filter: opacity(0);
+  animation: preloader-logo-anim .3s .5s ease-out forwards;
+  
+}
+
+#app-preloader .preloader-title:before {
+  content: var(--preload-title);
+  filter: opacity(0);
+  animation: preloader-title-anim .3s .6s ease-out forwards;
+}
+
+#app-preloader .preloader-spinner {
+  position: fixed;
+  bottom: var(--preload-gap);
+  left: calc(50vw - calc(var(--preload-spinner-size) / 2px));
+  width: var(--preload-spinner-size);
+  height: var(--preload-spinner-size);
+  animation: preloader-spinner .5s linear infinite;
+}
+
+#app-preloader .preloader-spinner .preloader-spinner-icon {
+  width: var(--preload-spinner-size);
+  height: var(--preload-spinner-size);
+  stroke: var(--preload-color-foreground);
+  stroke-width: var(--preload-spinner-width);
+  stroke-dasharray: 314%, 314%;
+  animation: preloader-spinner-icon-anim 1s linear infinite alternate;
+}
+
+@keyframes preloader-logo-anim {
+  0% {
+    filter: opacity(0);
+    transform: translateY(-30px);
+  }
+
+  100% {
+    filter: opacity(1);
+    transform: translateY(0);
+  }
+}
+
+@keyframes preloader-title-anim {
+  0% {
+    filter: opacity(0);
+  }
+
+  100% {
+    filter: opacity(1);
+  }
+}
+
+@keyframes preloader-spinner {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-spinner-icon-anim {
+  0% {
+    stroke-dasharray: 0%, 314%;
+  }
+
+  100% {
+    stroke-dasharray: 314%, 314%;
+  }
+}
+
+
+/* ////////////////////////////////////// */
+
+
+.box {
+  color: #fff;
+  position: relative;
+}
+
+
+
+.box.arrow-right:after {
+  content: " ";
+  position: absolute;
+  left:26px;
+  top: 200px;
+  rotate: 180deg;
+  border-top: 15px solid transparent;
+  border-right: none;
+  border-left: 15px solid rgb(27, 24, 34);
+  border-bottom: 15px solid transparent;
+}
+.box.arrow-left:after {
+  content: " ";
+  position: absolute;
+  right:26px;
+  top: 200px;
+  border-top: 15px solid transparent;
+  border-right: none;
+  border-left: 15px solid rgb(27, 24, 34);
+  border-bottom: 15px solid transparent;
+}
