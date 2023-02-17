@@ -1,81 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getStorage, getDownloadURL, ref } from "firebase/storage";
+import { app } from "../Firebase/Firebaseapp";
+import { useDispatch } from 'react-redux';
+import { carSearchQuery, GetSearchData } from '../Redux/Slice/DataSlice';
+import { useNavigate } from 'react-router-dom';
 
-const BrandAll = () => {
+const fireStorage = getStorage(app);
+
+const BrandAll = ({x,key}) => {
+
+  const [imageurl, setImageUrl] = useState()
+  const Navigate=useNavigate()
+
+  const Dispatch=useDispatch()
+
+  const getBrandImg = (path) => {
+      return getDownloadURL(ref(fireStorage, path))
+    }
+    useEffect(() => {
+      window.scrollTo(0,0)
+      getBrandImg(x.BrandLogo).then((url) => setImageUrl(url))
+  
+      console.log("I am Show Brand logo")
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const handelClick=(BrandName)=>{
+      Dispatch(carSearchQuery({Brand:BrandName}))
+      Dispatch(GetSearchData({Brand:BrandName}))
+      Navigate('/cars')
+      
+    }
+  
+
   return (
-  <>
-  <h2 className="text-2xl font-extrabold text-gray-900 text-center p-5 w-full">Popular Brands</h2>
-    <div className="min-h-[30vh] sm:h-[50vh] w-[100%] flex  flex-col sm:flex-row justify-center items-center mt-5 mb-12  text-black sm:gap-1 gap-2">
-
-
-    <div className="card  h-[30vh] sm:w-[20%] w-[80%] rounded border-4">
-        <div className="img h-[80%] w-[100%]">
+    
+  <div  name="Brand" className="card  h-[25vh] sm:w-[250px] flex justify-center items-center flex-col w-[30%] rounded shadow-md hover:shadow-lg mix-blend-lighten" key={key} onClick={()=>handelClick(x.Brand)}>
+        <div className="img h-[60%] w-[100%]">
           <img
-            src="https://www.carlogos.org/car-logos/ford-logo.png "
-            className="h-[100%] w-[100%] object-contain"
+            src={imageurl}
+            className="h-[100%] w-[100%] object-contain mix-blend-lighten bg-white"
             alt=""
           />
         </div>
-        <div className="des  h-[20%] w-[100%] pt-2 ">
-          <div className=" text-center text-[20px]">ford</div>
-         
+        <div className="text-xl font-bold">
+        {x && x.Brand}
         </div>
+
        
       </div>
-
-
-      <div className="card  h-[30vh] sm:w-[20%] w-[80%] rounded border-4">
-        <div className="img h-[80%] w-[100%]">
-          <img
-            src="https://www.carlogos.org/logo/Mercedes-Benz-logo-2011-1920x1080.png "
-            className="h-[100%] w-[100%] object-contain"
-            alt=""
-          />
-        </div>
-        <div className="des  h-[20%] w-[100%] pt-2 ">
-          <div className=" text-center text-[20px]">Mercedes Benz</div>
-         
-        </div>
-       
-      </div>
-
-
-
-
-
-      <div className="card  h-[30vh] sm:w-[20%] w-[80%] rounded border-4">
-        <div className="img h-[80%] w-[100%]">
-          <img
-            src="https://www.citypng.com/public/uploads/preview/hd-renault-logo-transparent-background-11663515845mrdmafwffk.png "
-            className="h-[100%] w-[100%] object-contain"
-            alt=""
-          />
-        </div>
-        <div className="des  h-[20%] w-[100%] pt-2 ">
-          <div className=" text-center text-[20px]">renault</div>
-         
-        </div>
-       
-      </div>
-
-
-
-      <div className="card  h-[30vh] sm:w-[20%] w-[80%] rounded border-4">
-        <div className="img h-[80%] w-[100%]">
-          <img
-            src="https://listcarbrands.com/wp-content/uploads/2017/10/Tata-Motors-Logo-1988.png "
-            className="h-[100%] w-[100%] object-contain"
-            alt=""
-          />
-        </div>
-        <div className="des  h-[20%] w-[100%] pt-2 ">
-          <div className=" text-center text-[20px]">Tata Motors</div>
-         
-        </div>
-       
-      </div>
-
-    </div>
-  </>
+      
   )
 }
 

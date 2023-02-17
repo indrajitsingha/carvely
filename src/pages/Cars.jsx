@@ -1,98 +1,81 @@
-import React from 'react'
+/* eslint-disable array-callback-return */
+import React, { useState } from "react";
 import CarProduct from '../components/CarProduct'
 import '../assets/css/Homestyle.css'
+import SearchBar from '../components/SearchBar'
+import BrandAll from '../components/BrandAll'
+import Pagination from '../components/Pagination'
+import { useSelector } from "react-redux";
+import ScrollToTop from "react-scroll-to-top";
+import { STATUS } from "../Redux/Slice/DataSlice";
+import Spineer from "../components/Spineer";
 
 const Cars = () => {
+
+  const { Brands, Cardetails, searchReasult, status } = useSelector((state) => state.CarData)
+  const [to, setTo] = useState(0)
+  const [form, setForm] = useState(4)
+
+
+  console.log(to, form)
   return (
     <>
-      <section className=" h-[70vh] w-[100%]  carslider ">
-  
 
-  <div className="flex h-full w-[100%] items-center justify-center container mx-auto px-8">
-    <div className="max-w-2xl text-center">
-      <h1 className="text-3xl sm:text-5xl capitalize tracking-widest text-white lg:text-4xl">Search Your Dream CAR</h1>
+      {status === STATUS.LOADING ?
 
-      <div className="mt-8 flex flex-col space-y-3 sm:-mx-2 sm:flex-row sm:justify-center sm:space-y-0">
-        <input id="email" type="text" className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2" placeholder="Search Cars" />
+        <Spineer />
+        :
+        <div className=" overflow-hidden">
+          <SearchBar />
 
-        <div className="flex flex-row m-2">
-                        <div className="m-1">
-                            <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 ">
-                                <option selected className='bg-black '>Vehical Types</option>
-                                <option className='p-1 bg-black'>Hatchback</option>
-                                <option className='p-1 bg-black'>Sedan</option>
-                                <option className='p-1 bg-black'>Hatchback</option>
-                                <option className='p-1 bg-black'>SUV</option>
-                                <option  className='p-1 bg-black'>MUV</option>
-                                <option className='p-1 bg-black'>Luxary</option>
-                                <option className='p-1 bg-black'>Super Luxury</option>
-                                <option className='p-1 bg-black'>Convertible</option>
-                                <option className='p-1 bg-black'>Hybrid</option>
-                                <option className='p-1 bg-black'>Coupe</option>
-                                <option className='p-1 bg-black'>Pickup Truck</option>
-                               
-                            </select>
-                        </div>
-                     
+          <div className="min-h-[50vh] w-[100%]  flex sm:flex-row flex-col  mb-12  text-black sm:gap-1 gap-2 ">
 
+            <div className="sm:w-[100%] w-[100%] flex justify-start items-center  flex-col">
+              {searchReasult.length === 0 ?
 
-                       
-                        <div className="m-1">
-                            <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
-                                <option selected className='p-1 bg-black'>Brand</option>
-                                <option  className='p-1 bg-black'>Maruti</option>
-                                <option  className='p-1 bg-black'>Hyundai</option>
-                                <option  className='p-1 bg-black'>Honda</option>
-                                <option  className='p-1 bg-black'>Tata</option>
-                                <option  className='p-1 bg-black'>Renault</option>
-                                <option className='p-1 bg-black' >Mahindra</option>
-                                <option  className='p-1 bg-black'>Ford</option>
-                                <option  className='p-1 bg-black'>Nissan</option>
-                                <option  className='p-1 bg-black'>Datsun</option>
-                            </select>
-                        </div>
+                Cardetails && Cardetails.slice(to, form).map((x, index) => {
+                  return (
+                    <CarProduct car={x} key={index} />
+                  )
+                })
+                :
+                searchReasult.map((x, index) => {
+                  return (
+                    <CarProduct car={x} key={index} />
+                  )
+                })
+              }
 
-                        
-                        
-
-
-                        <div className="m-1">
-                        <select className="rounded-md border border-transparent bg-white/20 px-4 py-2 text-white placeholder-white backdrop-blur-sm focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 sm:mx-2">
-                                <option  className='p-1 bg-black'>Price</option>
-                                <option  className='p-1 bg-black'>1-5 Lakh </option>
-                                <option className='p-1 bg-black'>5-10 Lakhs</option>
-                                <option className='p-1 bg-black'>10-15 Lakhs</option>
-                                <option className='p-1 bg-black'>15-20 Lakhs</option>
-                                <option className='p-1 bg-black'>20-25 Lakhs</option>
-                                <option className='p-1 bg-black'>25-30 Lakhs</option>
-                                <option className='p-1 bg-black'>30-35 Lakhs</option>
-                                <option className='p-1 bg-black'>35-40 Lakhs</option>
-                                <option className='p-1 bg-black'>40 Lakhs * above</option> 
-                            </select>
-                        </div>
-                        </div>
-
-        <button className="transform rounded-md bg-blue-700 px-8 py-2 text-sm font-medium capitalize tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2">Search</button>
-      </div>
-    </div>
-  </div>
-
-  
-</section>
- 
-    <div className="min-h-[50vh] w-[100%] flex  flex-col flex-wrap sm:flex-row justify-center items-center mt-5 mb-12  text-black sm:gap-1  gap-2">
+            </div>
 
 
 
+            <div className="  flex items-center sm:flex-col flex-row justify-around  flex-wrap mt-5 w-[100%]">
+              <h1 className=' font-bold font-serif text-[20px] hidden sm:block'>BRANDS</h1>
 
-    <CarProduct/>
-    <CarProduct/>
-    <CarProduct/>
-    <CarProduct/>
-    <CarProduct/>
-    <CarProduct/>
-   
-    </div>
+              {
+                Brands && Brands.map((x, index) => {
+
+                  if (index < 6) {
+                    return (
+                      <BrandAll x={x} brandId={x.id} key={index} />
+                    )
+                  } 
+                })
+              }
+
+
+            </div>
+
+
+          </div>
+
+          <Pagination setTo={setTo} setForm={setForm} form={form} to={to} />
+
+          <ScrollToTop smooth color="black" width="40" style={{ backgroundColor: "#F273E6" }} />
+
+        </div>
+      }
     </>
   )
 }
